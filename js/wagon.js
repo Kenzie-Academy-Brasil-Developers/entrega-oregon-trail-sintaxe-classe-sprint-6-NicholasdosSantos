@@ -27,7 +27,6 @@ class Wagon {
 
     shouldQuarantine(){
        for(let i = 0; i < this.passengers.length; i++){
-           console.log(this.passengers)
            if(this.passengers[i].isHelthy === false){
                return true
            }

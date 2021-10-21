@@ -1,28 +1,7 @@
-class Traveler {
-    
-    constructor (name, amountOfFood, isHelthy){
-        this.name = name;
-        this.amountOfFood = amountOfFood; // inicia com 1
-        this.isHelthy = isHelthy; // inicia true
-    }
-
-    hunt(){
-       return this.amountOfFood * 2
-    }
-
-    eat(){
-        if (this.amountOfFood > 0){
-           return this.amountOfFood - 1
-        }else{
-           return this.isHelthy = false
-        }
-    }
-}
-
 class Wagon {
-    constructor(capacity, passengers){
-        this.capacity = capacity;
-        this.passengers = passengers;
+    constructor(capacity){
+        this.capacity = capacity; //um inteiro
+        this.passengers = []; // um array
     }
 
     getAvailableSeatCount(){
@@ -33,7 +12,7 @@ class Wagon {
 
         return this.capacity - this.passengers.length
     }
-    join(){
+    join(name){
         /* 
         Adicione um viajante à carroça se tiver espaço. 
         Se a carroça já estiver cheia, não o adicione.
@@ -41,15 +20,21 @@ class Wagon {
 
         if(this.capacity > this.passengers.length){
             //incluir novo passageiro
-        }else{
-            //não incluir novo passageiro
+            this.passengers.push(name)
         }
 
     }
 
     shouldQuarantine(){
-        this.passengers.forEach(passenger => passenger.isHelthy === false ? true : false)
+       for(let i = 0; i < this.passengers.length; i++){
+           console.log(this.passengers)
+           if(this.passengers[i].isHelthy === false){
+               return true
+           }
 
+       }
+
+       return false
     }
 
     totalFood(){
